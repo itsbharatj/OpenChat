@@ -1,0 +1,20 @@
+[project]
+name = "chatbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=1.4.0",
+    "dotenv>=0.9.9",
+    "langchain>=1.2.0",
+    "openai>=2.14.0",
+    "pymango[srv]>=0.1.1",
+    "streamlit>=1.52.2",
+    "supabase>=2.27.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "pymongo-quickstart",
+]
