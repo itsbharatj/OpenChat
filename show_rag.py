@@ -19,19 +19,20 @@ load_dotenv()
 import uuid
 
 
+
 chorma_client = chromadb.PersistentClient("RAG_Application/chroma_data")
 
 collection = chorma_client.get_or_create_collection(
     name="embedding_application",
     embedding_function=OpenAIEmbeddingFunction(
-        api_key=os.getenv("OPEN_AI"),
+        api_key=st.secrets["OPEN_AI"],
         model_name="text-embedding-3-large"
     )
 )
 
 
-url: str = os.getenv("SUPABASE_URL")
-key: str = os.getenv("SUPABASE_KEY")
+url: str = st.secrets["SUPABASE_URL"]
+key: str = st.secrets["SUPABASE_KEY"]
 supabase: Client = create_client(url, key)
 
 ## Init the st.session_state:
